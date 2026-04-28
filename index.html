@@ -32,7 +32,7 @@
 .btn-enter:hover{transform:scale(1.05);background:#e04b69;}
 body{font-family:'Poppins',sans-serif;background-color:var(--background-light);color:var(--primary-dark);line-height:1.6;-webkit-font-smoothing:antialiased;}
 h1,h2,h3,h4,h5,.serif-text{font-family:'Playfair Display',serif;}
-.hero{position:relative;height:65vh;min-height:450px;background-image:url('hero.png');background-size:cover;background-position:center;background-attachment:fixed;display:flex;justify-content:center;}
+.hero{position:relative;height:65vh;min-height:450px;background-image:url('hero.png');background-size:cover;background-position:center 0;background-attachment:scroll;display:flex;justify-content:center;will-change:background-position;}
 .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom,rgba(0,0,0,0.2),rgba(0,0,0,0.5));}
 .hero-content{position:absolute;bottom:110px;text-align:center;color:var(--white);z-index:1;padding:0 20px;width:100%;animation:fadeInDown 1s cubic-bezier(0.2,0.8,0.2,1);}
 .hero h1{font-size:4rem;margin-bottom:5px;font-weight:600;text-shadow:0 2px 20px rgba(0,0,0,0.5);}
@@ -481,6 +481,11 @@ document.addEventListener('DOMContentLoaded',function(){
     var btnShare=document.getElementById('btnShare');
     var shareData={title:'Propuesta XV Anos Antonio - Primavera Events Group',text:'Hola! Te comparto la cotizacion premium para los XV Anos de Antonio. Incluye barra de pastas y pizza, esquites, snacks y servicio integral para 130 personas.',url:'https://5410m0n0c001.github.io/antonio-cotizacion/'};
     btnShare.addEventListener('click',async function(){if(navigator.share){try{await navigator.share(shareData);}catch(err){if(err.name!=='AbortError'){console.error(err);}}}else{try{await navigator.clipboard.writeText('https://5410m0n0c001.github.io/antonio-cotizacion/');alert('Enlace copiado al portapapeles. Ya puedes pegarlo en WhatsApp o cualquier app!');}catch(err){alert('Por favor, copia el enlace de la barra de direcciones de tu navegador.');}}});
+    window.addEventListener('scroll',function(){
+        var scrolled=window.pageYOffset;
+        var hero=document.querySelector('.hero');
+        if(hero){hero.style.backgroundPosition='center '+(scrolled*0.4)+'px';}
+    });
     document.addEventListener('click',function(){fabGroups.forEach(function(g){g.classList.remove('active');});});
 });
 </script>
