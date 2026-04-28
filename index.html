@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded',function(){
     if(preloaderVideo){var p=preloaderVideo.play();if(p!==undefined){p.catch(function(){});}}
     btnEnter.addEventListener('click',function(){
         if(bgAudio){bgAudio.play().catch(function(){});}
-        ['videoMenu','videoFirma'].forEach(function(id){var v=document.getElementById(id);if(v){v.play().then(function(){if(!isInViewport(v)){v.pause();}}).catch(function(){});}});
+        ['videoMenu','videoFirma'].forEach(function(id){var v=document.getElementById(id);if(v){v.play().catch(function(){});}});
         hidePreloader();
     });
     function isInViewport(el){var r=el.getBoundingClientRect();return r.top<window.innerHeight&&r.bottom>0;}
@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded',function(){
 <div class="reveal" style="grid-column:1/-1;" id="banqueteReveal"><div class="include-item" style="flex-direction:row;flex-wrap:wrap;">
     <div class="include-img-container" style="flex:1;min-width:300px;height:auto;">
         <video id="videoMenu" autoplay muted loop playsinline preload="auto" style="width:100%;height:auto;border-radius:12px;display:block;">
-            <source src="menu_antonio.mp4" type="video/mp4">
+            <source src="menu_antonio.mp4?v=2.0" type="video/mp4">
         </video>
     </div>
     <div class="include-content" style="flex:1;min-width:300px;">
